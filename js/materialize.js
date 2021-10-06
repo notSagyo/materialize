@@ -11160,7 +11160,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
 
       /**
-       * Handle Carousel CLick
+       * Handle Carousel Click
        * @param {Event} e
        */
 
@@ -11181,7 +11181,18 @@ $jscomp.polyfill = function (e, r, p, m) {
             e.preventDefault();
             e.stopPropagation();
           }
-          this._cycleTo(clickedIndex);
+
+          // fixes https://github.com/materializecss/materialize/issues/180
+          if (clickedIndex < 0) {
+            // relative X position > center of carousel = clicked at the right part of the carousel
+            if (e.clientX - e.target.getBoundingClientRect().left > this.el.clientWidth / 2) {
+              this.next();
+            } else {
+              this.prev();
+            }
+          } else {
+            this._cycleTo(clickedIndex);
+          }
         }
       }
 
