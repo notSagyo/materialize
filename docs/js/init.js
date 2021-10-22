@@ -71,7 +71,7 @@
     if ($('.github-commit').length) {
       // Checks if widget div exists (Index only)
       $.ajax({
-        url: 'https://api.github.com/repos/materializecss/materialize/commits/v1-dev',
+        url: 'https://api.github.com/repos/materializecss/materialize/commits/main',
         dataType: 'json',
         success: function(data) {
           var sha = data.sha,
@@ -233,17 +233,27 @@
 })(jQuery); // end of jQuery name space
 
 // Copy Button
-function copyText() {
-  const copiedText = document.getElementById('copiedText').textContent
-  const textArea = document.createElement('textArea');
-  textArea.textContent = copiedText;
-  document.body.append(textArea);
-  textArea.select();
-  textArea.setSelectionRange(0, 99999)
-  document.execCommand('copy');
-  document.getElementById('copyButton')
-  .insertAdjacentHTML('afterend',
-  `<span style="margin-left:10px; font-size:14px;">Copied!</span>`
-  )
-  // alert("Code copied to clipboard: " + textArea.value);
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  const copyBtn = Array.prototype.slice.call(
+    document.querySelectorAll(".copyButton")
+  );
+
+  const copiedText = Array.prototype.slice.call(
+    document.querySelectorAll(".copiedText")
+  );
+
+  const copyMsg = Array.prototype.slice.call(
+    document.querySelectorAll(".copyMessage")
+  );
+
+	copyBtn.forEach((copyBtn, i) => {
+		copyBtn.addEventListener("click", () => {
+			navigator.clipboard.writeText(copiedText[i].innerText);
+			copyMsg[i].style.opacity = 1;
+			setTimeout(() => {
+				copyMsg[i].style.opacity = 0;
+			}, 2000);
+		});
+	});
+});
+
