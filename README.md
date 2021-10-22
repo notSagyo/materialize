@@ -46,7 +46,7 @@
 Read the [getting started guide](https://materializecss.github.io/materialize/getting-started.html) for more information on how to use materialize.
 
 - [Download the latest release](https://github.com/materializecss/materialize/releases/latest) of materialize directly from GitHub. ([Beta](https://github.com/materializecss/materialize/releases/))
-- Clone the repo: `git clone https://github.com/materializecss/materialize.git` (Beta: `git clone -b v1-dev https://github.com/materializecss/materialize.git`)
+- Clone the repo: `git clone https://github.com/materializecss/materialize.git`
 - Include the files via [jsDelivr](https://www.jsdelivr.com/package/npm/@materializecss/materialize).
 - Install with [npm](https://www.npmjs.com): `npm install @materializecss/materialize` (Beta: `npm install @materializecss/materialize@next`)
 
@@ -62,7 +62,7 @@ cd materialize
 npm install
 ```
 
-Then run `npm run dev` to compile the documentation. When it finishes, open a new browser window and navigate to `localhost:8000`. We use [BrowserSync](https://www.browsersync.io/) to display the documentation.
+Then run `npm run dev` to compile the documentation. When it finishes, open a new browser window and navigate to `localhost:8000/docs`. We use [BrowserSync](https://www.browsersync.io/) to display the documentation.
 
 ### Documentation for previous releases
 Previous releases and their documentation are available for [download](https://github.com/materializecss/materialize/releases).

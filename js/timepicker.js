@@ -210,7 +210,8 @@
       this.modalEl.id = 'modal-' + this.id;
 
       // Append popover to input by default
-      let containerEl = document.querySelector(this.options.container);
+      const optEl = this.options.container;
+      let containerEl = optEl instanceof HTMLElement ? optEl : document.querySelector(optEl);
       if (this.options.container && !!containerEl) {
         this.$modalEl.appendTo(containerEl);
       } else {
@@ -237,8 +238,8 @@
       this.vibrate = navigator.vibrate
         ? 'vibrate'
         : navigator.webkitVibrate
-          ? 'webkitVibrate'
-          : null;
+        ? 'webkitVibrate'
+        : null;
 
       this._canvas = this.modalEl.querySelector('.timepicker-canvas');
       this.plate = this.modalEl.querySelector('.timepicker-plate');
@@ -340,7 +341,7 @@
       if (this.options.twelveHour) {
         for (let i = 1; i < 13; i += 1) {
           let tick = $tick.clone();
-          let radian = i / 6 * Math.PI;
+          let radian = (i / 6) * Math.PI;
           let radius = this.options.outerRadius;
           tick.css({
             left:
@@ -355,7 +356,7 @@
       } else {
         for (let i = 0; i < 24; i += 1) {
           let tick = $tick.clone();
-          let radian = i / 6 * Math.PI;
+          let radian = (i / 6) * Math.PI;
           let inner = i > 0 && i < 13;
           let radius = inner ? this.options.innerRadius : this.options.outerRadius;
           tick.css({
@@ -376,7 +377,7 @@
       // Minutes view
       for (let i = 0; i < 60; i += 5) {
         let tick = $tick.clone();
-        let radian = i / 30 * Math.PI;
+        let radian = (i / 30) * Math.PI;
         tick.css({
           left:
             this.options.dialRadius +

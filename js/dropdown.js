@@ -155,7 +155,6 @@
     _setupTemporaryEventHandlers() {
       // Use capture phase event handler to prevent click
       document.body.addEventListener('click', this._handleDocumentClickBound, true);
-      document.body.addEventListener('touchend', this._handleDocumentClickBound);
       document.body.addEventListener('touchmove', this._handleDocumentTouchmoveBound);
       this.dropdownEl.addEventListener('keydown', this._handleDropdownKeydownBound);
     }
@@ -163,7 +162,6 @@
     _removeTemporaryEventHandlers() {
       // Use capture phase event handler to prevent click
       document.body.removeEventListener('click', this._handleDocumentClickBound, true);
-      document.body.removeEventListener('touchend', this._handleDocumentClickBound);
       document.body.removeEventListener('touchmove', this._handleDocumentTouchmoveBound);
       this.dropdownEl.removeEventListener('keydown', this._handleDropdownKeydownBound);
     }
@@ -386,7 +384,9 @@
         this.focusedIndex < this.dropdownEl.children.length &&
         this.options.autoFocus
       ) {
-        this.dropdownEl.children[this.focusedIndex].classList.add('active');
+        this.dropdownEl.children[this.focusedIndex].focus({
+          preventScroll: true
+        });
         this.dropdownEl.children[this.focusedIndex].scrollIntoView({
           behavior: 'smooth',
           block: 'nearest',
@@ -621,6 +621,7 @@
       if (!this.isOpen) {
         return;
       }
+
       this.isOpen = false;
       this.focusedIndex = -1;
 
