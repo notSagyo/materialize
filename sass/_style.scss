@@ -30,10 +30,13 @@ nav {
   // background-color: color("materialize-red", "lighten-2");
 
   a {
-    color: rgba(0,0,0,.87);
+    color: $font-color-main;
   }
-  ul li a:hover, ul li.active {
-    background-color: color("materialize-red", "lighten-1");
+  ul li a:hover {
+    background-color: $primary-color-when-hovered-solid;
+  }
+  ul li.active {
+    background-color: $primary-color-when-focused-solid;
   }
 }
 
@@ -42,7 +45,7 @@ td, th {
 }
 
 .header {
-  color: color("materialize-red", "lighten-2");
+  color: $primary-color;
   font-weight: 300;
 }
 
@@ -182,7 +185,7 @@ a.sidenav-trigger.top-nav {
   top: 28px;
   float: none;
   margin-left: 1.5rem;
-  color: color("materialize-red", "lighten-3");
+  color: $primary-color;
   font-size: 36px;
   z-index: 2;
 
@@ -308,9 +311,9 @@ a.sidenav-trigger.top-nav {
 #download-button,
 #upgrade-button {
   &:hover {
-    background-color: lighten(color("materialize-red", "base"), 30%);
+    background-color: $primary-color-when-hovered-solid;
   }
-  background-color: color("materialize-red", "lighten-2");
+  background-color: $primary-color;
   width: 260px;
   height: 70px;
   margin: 4px;
@@ -325,7 +328,7 @@ a.sidenav-trigger.top-nav {
 
   i {
     margin: 40px 0;
-    color: color("materialize-red", "lighten-2");
+    color: $primary-color;
     font-size: 7rem;
     display: block;
   }
@@ -343,14 +346,14 @@ a.sidenav-trigger.top-nav {
   background-color: #FFF;
   position: relative;
   a {
-      color: color("materialize-red", "lighten-2");
+      color: $primary-color;
     }
   li {
     &:hover {
-      background-color: color("materialize-red", "lighten-5");
+      background-color: $primary-color-when-hovered-solid;
     }
     &.active {
-      background-color: color("materialize-red", "lighten-5");
+      background-color: $primary-color-when-focused-solid;
     }
   }
   .container {
@@ -390,11 +393,11 @@ a.sidenav-trigger.top-nav {
   height: 300px;
 }
 #site-layout-example-right {
-  background-color: color("teal", "lighten-1");
+  background-color: $secondary-color;
   height: 300px;
 }
 #site-layout-example-top {
-  background-color: color("red", "lighten-2");
+  background-color: $primary-color;
   height: 42px;
 }
 
@@ -566,7 +569,7 @@ thead {
 
 // Shadow demo styling
 .shadow-demo {
-  background-color: color("teal", "lighten-1");
+  background-color: $secondary-color;
   width: 100px;
   height: 100px;
   margin: 20px auto;
